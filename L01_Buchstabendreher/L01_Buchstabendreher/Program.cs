@@ -17,6 +17,7 @@ namespace L01_Buchstabendreher
 
         static string ReverseLetters(string text)
         {
+            Console.WriteLine("Hi");
              char [] letters = text.ToCharArray();
             Array.Reverse(letters);
             return new String(letters);
