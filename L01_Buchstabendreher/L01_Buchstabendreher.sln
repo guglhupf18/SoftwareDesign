@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01_Buchstabendreher", "L01_Buchstabendreher\L01_Buchstabendreher.csproj", "{FFD61709-2320-4E14-9BA3-9FCCBD70FC62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFD61709-2320-4E14-9BA3-9FCCBD70FC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD61709-2320-4E14-9BA3-9FCCBD70FC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD61709-2320-4E14-9BA3-9FCCBD70FC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD61709-2320-4E14-9BA3-9FCCBD70FC62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58B8124C-96AF-480A-9920-5A6FC658FCA9}
+	EndGlobalSection
+EndGlobal

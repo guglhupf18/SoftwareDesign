@@ -1,0 +1,11 @@
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.exe
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.deps.json
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.runtimeconfig.json
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.runtimeconfig.dev.json
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.dll
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.pdb
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.csprojAssemblyReference.cache
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.AssemblyInfoInputs.cache
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.AssemblyInfo.cs
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.dll
+C:\Studium\Software Design\Praktikum\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.pdb
