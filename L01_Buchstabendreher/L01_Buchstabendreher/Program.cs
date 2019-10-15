@@ -17,34 +17,34 @@ namespace L01_Buchstabendreher
 
         static string ReverseLetters(string text)
         {
-            char[] c = text.ToCharArray();
-            char[] testArray = new char[c.Length];
-            string word = "";
-            int index = 0;
-            int pivot = 0;
-            // 
-            for (int i = 0; i < c.Length; i++)
-            {
-                if (!char.IsWhiteSpace(c[i]))
-                {
-                    testArray[i] = c[i];
-                }
-                else
-                {
-                    pivot = i;
-                    Array.Reverse(c, index, pivot);
-                    word += new string(testArray);
-                    index = pivot;
-                }
-            }
-            return new string(word);
+             char [] letters = text.ToCharArray();
+            Array.Reverse(letters);
+            return new String(letters);
         }
 
-        static string ReverseSentence(string text)
+
+
+   /*     static string ReverseSentence(string text)
         {
             char[] c = text.ToCharArray();
             Array.Reverse(c);
             return new string(c);
+        }
+        */
+        static string ReverseWords(string text){
+            string [] words = text.Split(" ");
+            Array.Reverse(words);
+
+            string wordsreversed = string.Join(" ", words); 
+            return wordsreversed; 
+        }
+
+         static string ReverseSentence(string text)
+        {
+            //first I reverse the letters than i reverse the words
+
+            text = ReverseLetters(text);
+            return ReverseWords(text);
         }
     }
 }
