@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "Task-L02_Zahlensysteme",
+      "appliesTo": "L02_Zahlensysteme.cs",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "Task-L02_Zahlensysteme",
+      "appliesTo": "L02_Zahlensysteme.cs",
+      "type": "launch"
+    }
+  ]
+}
