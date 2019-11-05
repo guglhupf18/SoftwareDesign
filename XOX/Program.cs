@@ -38,7 +38,7 @@ namespace XOX_Test02
             checkForWin();
 
             if (turn < 9 && !win)
-                Console.WriteLine("Nächster Spieler ist am Zug");
+                Console.WriteLine("Nächster Spieler ist am Zug. Wähle die gewünschte Position");
 
             else if (turn == 9 && !win)
                 Console.WriteLine("Das Spiel endet unentschieden");
@@ -58,12 +58,15 @@ namespace XOX_Test02
 
         static void playerTurn(int position)
         {
-            Console.WriteLine("turn" + turn);
-            if (turn/2 < 1)
-                board[position] = "X";
+            if (position < 9)
+            {
+                if (turn / 2 < 1)
+                    board[position] = "X";
+                else
+                    board[position] = "O";
+            }
             else
-                board[position] = "O";
-
+                Console.WriteLine("Die eingegebene Position ist ungültig");
             turn++;
             printBoardAndTurn();
 
