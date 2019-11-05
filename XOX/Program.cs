@@ -62,7 +62,7 @@ namespace XOX_Test02
             if (turn/2 < 1)
                 board[position] = "X";
             else
-                board[position] = "Y";
+                board[position] = "O";
 
             turn++;
             printBoardAndTurn();
