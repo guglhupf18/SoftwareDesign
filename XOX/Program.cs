@@ -61,7 +61,8 @@ namespace XOX_Test02
 
             if (position < 9)
             {
-                if (turn / 2 < 1)
+                // modulo 2 
+                if (turn % 2 < 1)
                     board[position] = "X";
                 else
                     board[position] = "O";
