@@ -15,7 +15,7 @@ namespace XOX_Test02
         static bool win = false;
         static void generatePlayfield()
         {
-            turn = 0;
+            turn = 1;
             board = new string[9];
             board[0] = "0";
             board[1] = "1";
@@ -58,6 +58,7 @@ namespace XOX_Test02
 
         static void playerTurn(int position)
         {
+
             if (position < 9)
             {
                 if (turn / 2 < 1)
@@ -67,10 +68,10 @@ namespace XOX_Test02
             }
             else
                 Console.WriteLine("Die eingegebene Position ist ungültig");
+            
             turn++;
             printBoardAndTurn();
-
-
+            
 
         }
         static bool checkForWin()
