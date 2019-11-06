@@ -20,3 +20,14 @@ C:\Studium\Software Design\Praktikum\SoftwareDesign\L01_Buchstabendreher\L01_Buc
 C:\Studium\Software Design\Praktikum\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.AssemblyInfo.cs
 C:\Studium\Software Design\Praktikum\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.dll
 C:\Studium\Software Design\Praktikum\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.pdb
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.exe
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.deps.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.runtimeconfig.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.runtimeconfig.dev.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.dll
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\bin\Debug\netcoreapp3.0\L01_Buchstabendreher.pdb
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.csprojAssemblyReference.cache
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.AssemblyInfoInputs.cache
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.AssemblyInfo.cs
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.dll
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\L01_Buchstabendreher\L01_Buchstabendreher\obj\Debug\netcoreapp3.0\L01_Buchstabendreher.pdb

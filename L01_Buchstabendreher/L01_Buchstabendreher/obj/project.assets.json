@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Studium\\Software Design\\Praktikum\\SoftwareDesign\\L01_Buchstabendreher\\L01_Buchstabendreher\\L01_Buchstabendreher.csproj",
+      "projectUniqueName": "C:\\Users\\lenovo\\Documents\\Repositories\\SoftwareDesign\\L01_Buchstabendreher\\L01_Buchstabendreher\\L01_Buchstabendreher.csproj",
       "projectName": "L01_Buchstabendreher",
-      "projectPath": "C:\\Studium\\Software Design\\Praktikum\\SoftwareDesign\\L01_Buchstabendreher\\L01_Buchstabendreher\\L01_Buchstabendreher.csproj",
+      "projectPath": "C:\\Users\\lenovo\\Documents\\Repositories\\SoftwareDesign\\L01_Buchstabendreher\\L01_Buchstabendreher\\L01_Buchstabendreher.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Studium\\Software Design\\Praktikum\\SoftwareDesign\\L01_Buchstabendreher\\L01_Buchstabendreher\\obj\\",
+      "outputPath": "C:\\Users\\lenovo\\Documents\\Repositories\\SoftwareDesign\\L01_Buchstabendreher\\L01_Buchstabendreher\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
