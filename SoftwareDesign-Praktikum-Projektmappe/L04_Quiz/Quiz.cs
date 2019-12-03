@@ -13,7 +13,7 @@ namespace L04_Quiz
         {
             score = 0;
             setupDefaultQuestions();
-
+            
             while (running)
             {
                 Console.WriteLine("Please choose:" + "\n" + "1: Answer a question" + "\n"

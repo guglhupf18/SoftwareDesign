@@ -11,5 +11,10 @@ namespace L04_Quiz
         public List<string> answers = new List<string>();
         public int correctAnswer = 0;
 
+        public void displayQuestion(string message)
+        {
+            Console.WriteLine(question);
+        }
+
     }
 }

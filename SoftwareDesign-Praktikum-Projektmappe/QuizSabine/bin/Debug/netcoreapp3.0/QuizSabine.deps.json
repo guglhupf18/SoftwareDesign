@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.0": {
-      "L04_Quiz/1.0.0": {
+      "QuizSabine/1.0.0": {
         "runtime": {
-          "L04_Quiz.dll": {}
+          "QuizSabine.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "L04_Quiz/1.0.0": {
+    "QuizSabine/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

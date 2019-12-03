@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("L04_Quiz")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("GenericTree")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("L04_Quiz")]
-[assembly: System.Reflection.AssemblyTitleAttribute("L04_Quiz")]
+[assembly: System.Reflection.AssemblyProductAttribute("GenericTree")]
+[assembly: System.Reflection.AssemblyTitleAttribute("GenericTree")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Von der MSBuild WriteCodeFragment-Klasse generiert.
