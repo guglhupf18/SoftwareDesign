@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>60</y>
+      <w>310</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>TreeNode&lt;T&gt;
+--
+- parent: TreeNode&lt;T&gt;
+- children: List&lt;TreeNode&lt;T&gt;
+- root: TreeNode&lt;T&gt;
+--
++ CreateNode(node : T): void
++ AppendChild(child : T): void
++ RemoveChild(node : T): void
++ PrintTree(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
