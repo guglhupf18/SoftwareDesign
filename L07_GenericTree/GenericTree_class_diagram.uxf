@@ -13,7 +13,7 @@
 --
 - parent: TreeNode&lt;T&gt;
 - children: List&lt;TreeNode&lt;T&gt;
-- root: TreeNode&lt;T&gt;
+
 --
 + CreateNode(node : T): void
 + AppendChild(child : T): void
