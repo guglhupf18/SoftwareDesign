@@ -1,0 +1,11 @@
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\obj\Debug\netcoreapp3.0\L06_GenericTree.csprojAssemblyReference.cache
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\obj\Debug\netcoreapp3.0\L06_GenericTree.AssemblyInfoInputs.cache
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\obj\Debug\netcoreapp3.0\L06_GenericTree.AssemblyInfo.cs
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\bin\Debug\netcoreapp3.0\L06_GenericTree.exe
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\bin\Debug\netcoreapp3.0\L06_GenericTree.deps.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\bin\Debug\netcoreapp3.0\L06_GenericTree.runtimeconfig.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\bin\Debug\netcoreapp3.0\L06_GenericTree.runtimeconfig.dev.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\bin\Debug\netcoreapp3.0\L06_GenericTree.dll
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\bin\Debug\netcoreapp3.0\L06_GenericTree.pdb
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\obj\Debug\netcoreapp3.0\L06_GenericTree.dll
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\SoftwareDesign-Praktikum-Projektmappe\L06_GenericTree\obj\Debug\netcoreapp3.0\L06_GenericTree.pdb

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+
 namespace L06_GenericTree
 {
     class Tree
@@ -23,6 +24,7 @@ namespace L06_GenericTree
             child2.AppendChild(grand21);
             child1.RemoveChild(grand12);
 
+            root.AddListener("AppendChild", HandleAppendChild);
             root.PrintTree();
         }
     }

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "L06_GenericTree/1.0.0": {
+        "runtime": {
+          "L06_GenericTree.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "L06_GenericTree/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
