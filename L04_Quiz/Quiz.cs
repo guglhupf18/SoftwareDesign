@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace L04_Quiz
-{
+
     class Quiz
     {
         public static int score;
@@ -188,4 +187,4 @@ namespace L04_Quiz
     }
 
 
-}
+
