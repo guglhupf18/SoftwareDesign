@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-
+namespace L04_Quiz
+{
     class Quiz
     {
         public static int score;
-       
+
         static bool running = true;
         static void Main(string[] args)
         {
             score = 0;
-            setupDefaultQuestions();
+           // setupDefaultQuestions();
+            ReadJsonFile();
 
             while (running)
             {
@@ -40,74 +46,93 @@ using System.Collections.Generic;
 
         }
 
-       
+
         private static List<QuizElement> qList = new List<QuizElement>();
 
         static void setupDefaultQuestions()
         {
-            QuizElement qe = new QuizElement();
+            SingleAnswerQuestion qe = new SingleAnswerQuestion();
 
             qe.question = "Wie viele Monde hat der Planet Erde?";
             qe.answers.Add("1");
             qe.answers.Add("2");
-            qe.correctAnswer = 0;
+            qe.correctAnswer = ("1");
             qList.Add(qe);
 
-            QuizElement qe2 = new QuizElement();
+            SingleAnswerQuestion qe2 = new SingleAnswerQuestion();
             qe2.question = "Woraus wird Sake hergestellt?";
             qe2.answers.Add("Weizen");
             qe2.answers.Add("Mais");
             qe2.answers.Add("Reis");
-            qe2.correctAnswer = 2;
+            qe2.correctAnswer = ("Reis");
             qList.Add(qe2);
 
-            QuizElement qe3 = new QuizElement();
+            SingleAnswerQuestion qe3 = new SingleAnswerQuestion();
             qe3.question = "Was feiert man am 35. Hochzeitstag?";
             qe3.answers.Add("Silberhochzeit");
             qe3.answers.Add("Winterhochzeit");
             qe3.answers.Add("Sommerhochzeit");
             qe3.answers.Add("Korallenhochzeit");
-            qe3.correctAnswer = 3;
+            qe3.correctAnswer = ("Korallenhochzeit");
             qList.Add(qe3);
 
         }
 
         static int answeredQuestions = 0;
         static void displayQuestion()
-        {
-            if (answeredQuestions < qList.Count)
-            {
-                Console.WriteLine("\n" + qList[answeredQuestions].question);
-                for (int i = 0; i < qList[answeredQuestions].answers.Count; i++)
-                {
-                    Console.WriteLine(i + 1 + ": " + qList[answeredQuestions].answers[i] + "\n");
-                }
-                int input = Int32.Parse(Console.ReadLine()) - 1;
+        {   
+            Random rnd = new Random();
+            int rn = rnd.Next(0, questionArray.Count);
+            Console.WriteLine(questionArray[rn]["Question"]);
+            Console.WriteLine(">");
+            var input = Console.ReadLine();
+            string type = questionArray[rn]["Type"].ToString();
 
-                answerQuestion(input);
+            var currentQuizElement = questionArray[rn];
+            switch (type)
+            {   
+                case "SingleAnswer":
+                    SingleAnswerQuestion element = new SingleAnswerQuestion
+                    {
+                        question = currentQuizElement["Question"].ToString(),
+                        correctAnswer = currentQuizElement["CorrectAnswer"].ToString()
+                      
+                    };
+                    Console.WriteLine(questionArray["Answers"][0].ToString());
+                    //element.answers.Add(questionArray["Answers"][0].ToString());
+                    Console.WriteLine("SingleAnswer");
+                    break;
+                default:
+                    Console.WriteLine("No type found");
+                    break;
+                // TODO: Answer Question
             }
-            else
-                Console.WriteLine("No more questions left. Your final score is:" + "" + score);
         }
 
-        static void answerQuestion(int answer)
+        static void answerQuestion()
         {
-            if (answer == qList[answeredQuestions].correctAnswer)
-            {
-                Console.WriteLine("Your answer was correct");
-                score++;
-                answeredQuestions++;
-            }
-            else
-            {
-                Console.WriteLine("Your answer was wrong. Please try again!");
-            }
-            displayQuestion();
+            qList[answeredQuestions].answerQuestion();
+            /*
+                {
+                    Console.WriteLine("Your answer was correct");
+                    score++;
+                    answeredQuestions++;
+                }
+                else
+                {
+                    Console.WriteLine("Your answer was wrong. Please try again!");
+                }
+                displayQuestion();
+            
+             */
         }
         static void addQuestion()
         {
+            Console.WriteLine("currently not implemented");
+            /**
             QuizElement qe = new QuizElement();
 
+            Console.WriteLine("Create new element");
             Console.WriteLine("Please enter your question:");
             qe.question = Console.ReadLine();
 
@@ -115,7 +140,9 @@ using System.Collections.Generic;
             string input = Console.ReadLine();
             string[] answersArray = input.Split(';');
             List<string> answersList = new List<string>();
-
+    /**     TODO: 
+     * 
+     * 
             if (answersArray.Length <= 2)
             {
                 Console.WriteLine("Not enough possible answers. Please add at least two answers!");
@@ -155,7 +182,7 @@ using System.Collections.Generic;
 
             Console.WriteLine("Correct Answer: " + qe.answers[correctAnswer]);
 
-            Console.WriteLine("To submit your question press enter. To delete your question press backspace");
+            Console.WriteLine("To submit the new quiz element press enter. To delete your input press backspace");
 
             if (Console.ReadKey().Key == ConsoleKey.Enter)
             {
@@ -167,24 +194,27 @@ using System.Collections.Generic;
                 Console.WriteLine("Your question was deleted. Returning to main menu.");
                 return;
             }
+    */
         }
-        static void addQuestion(QuizElement element)
-        {
-            qList.Add(element);
-        }
+      
+        public static JArray questionArray;
 
-        static void addQuestion(string question, List<String> answers, int correctAnswerIndex)
+        static void ReadJsonFile()
         {
-            QuizElement qe = new QuizElement();
-            qe.question = question;
-            qe.answers = answers;
-            qe.correctAnswer = correctAnswerIndex;
-
-            qList.Add(qe);
+            string file = "question.json";
+            // TODO: Deserializer
+            // Dictionary -> FragenTyp, Klasse
+            // Fragentypen unterscheiden
+            // Neue Frage in neue Json Datei speichern
+            // Unit Testing lesen
+            // 
+            using (StreamReader r = new StreamReader(file))
+            {
+                var json = r.ReadToEnd();
+                questionArray = JArray.Parse(json);
+               
+            }
         }
-        
 
     }
-
-
-
+}

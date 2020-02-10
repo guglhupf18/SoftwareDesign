@@ -1,0 +1,57 @@
+[
+  {
+    "Question": "1+1",
+    "Type": "SingleAnswer",
+    "CorrectAnswer": [ "2" ],
+    "Answers": [ "1, 2, 3, 4" ]
+
+  },
+  {
+    "Question": "2+1",
+    "Type": "SingleAnswer",
+    "CorrectAnswer": [ "3" ],
+    "Answers": [ "1, 2, 3, 4" ]
+
+  },
+  {
+    "Question": "1+3",
+    "Type": "SingleAnswer",
+    "CorrectAnswer": [ "4" ],
+    "Answers": [ "1, 2, 3, 4" ]
+
+  },
+  {
+    "Question": "1+0",
+    "Type": "SingleAnswer",
+    "CorrectAnswer": [ "1" ],
+    "Answers": [ "1, 2, 3, 4" ]
+
+  }
+  /*
+  {
+    "Question": "Is a bear a bear?",
+    "Type": "Yes/No",
+    "CorrectAnswer": "Yes",
+    "Answers": [ "Yes", "No" ]
+  },
+  {
+    "Question": "Is programming an art?",
+    "Type": "SingleAnswer",
+    "CorrectAnswer": "Yes",
+    "Answers": [ "Yes", "No", "Banana" ]
+  },
+  {
+    "Question": "Estimate the population of Furtwangen",
+    "Type": "Estimation",
+    "CorrectAnswer": "9157",
+    "Tolerance": "100"
+  },
+  {
+    "Question": "Select all answers that start with an a",
+    "Type": "MultipleAnswer",
+    "CorrectAnswer": [ "Apple", "Anaglyph" ],
+    "Answers": [ "Apple, Banana, Clown, Anaglyph" ]
+
+  }
+  */
+]

@@ -1,0 +1,11 @@
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\bin\Debug\netcoreapp3.0\UnitTesting.exe
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\bin\Debug\netcoreapp3.0\UnitTesting.deps.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\bin\Debug\netcoreapp3.0\UnitTesting.runtimeconfig.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\bin\Debug\netcoreapp3.0\UnitTesting.runtimeconfig.dev.json
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\bin\Debug\netcoreapp3.0\UnitTesting.dll
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\bin\Debug\netcoreapp3.0\UnitTesting.pdb
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\obj\Debug\netcoreapp3.0\UnitTesting.csprojAssemblyReference.cache
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\obj\Debug\netcoreapp3.0\UnitTesting.AssemblyInfoInputs.cache
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\obj\Debug\netcoreapp3.0\UnitTesting.AssemblyInfo.cs
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\obj\Debug\netcoreapp3.0\UnitTesting.dll
+C:\Users\lenovo\Documents\Repositories\SoftwareDesign\UnitTesting\obj\Debug\netcoreapp3.0\UnitTesting.pdb
