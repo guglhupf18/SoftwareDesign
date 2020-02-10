@@ -28,7 +28,10 @@ namespace TextAdventure
                 if (input == 1)
                     this.SetupGame();
                 else if (input == 2)
+                {
+                    Console.Write("Application closed.");
                     this.gameIsRunning = false;
+                }
                 else
                     Console.Write("no valid input");
             }
@@ -51,8 +54,14 @@ namespace TextAdventure
 
         private void StartGame()
         {
-            Console.Write("Welcome to tortuga. Have fun!");
+            Console.Write("-----------------------------------------------------------------------" + "\n");
+
+            Console.Write("Welcome to tortuga. Have fun!" + "\n");
+
+            Console.Write("-----------------------------------------------------------------------");
             CreateWeapon("Stoneaxe", 30, "A stone axe");
+
+            currentTile = new Maptile();
             DescribeEnvironment();
             AskForPlayerInput();
         }
@@ -71,7 +80,6 @@ namespace TextAdventure
         public void DescribeEnvironment()
         {
 
-            currentTile = new Maptile();
             Vector2 playerPos = player.GetPosition();
 
             for (int i = 0; i < map.maptiles.Length; i++)
@@ -102,7 +110,7 @@ namespace TextAdventure
                 Console.Write(itemToShow.name + "\n");
             }
 
-            Console.Write("----------------------");
+            Console.Write("----------------------" + "\n");
         }
         public JArray mapElements;
         public bool ParseJsonFile()
@@ -287,32 +295,34 @@ namespace TextAdventure
 
         private void DropItem()
         {
-            Console.Write("Which item would you like to drop?");
+            Console.Write("Which item would you like to drop?" + "\n");
             ShowItems(player.GetInventory());
 
             string input = GetStringFromPlayerInput();
             Item itemToDrop = new Item();
 
-            for (int i = 1; i <= player.inventory.Count; i++)
+            for (int i = 1; i < player.inventory.Count; i++)
             {
                 if (player.inventory[i].name == input)
                 {
                     itemToDrop = player.inventory[i];
-                    player.inventory.Remove(itemToDrop);
                     currentTile.items.Add(itemToDrop);
+                    player.inventory.Remove(itemToDrop);
+
+                    Console.Write("You dropped" + " " + itemToDrop.name);
                 }
             }
         }
 
         private void UseItem()
         {
-            Console.Write("Which item would you like to use?");
+            Console.Write("Which item would you like to use?" + "\n");
             ShowItems(player.GetInventory());
 
             string input = GetStringFromPlayerInput();
             Item itemToUse = new Item();
 
-            for (int i = 1; i <= player.inventory.Count; i++)
+            for (int i = 1; i < player.inventory.Count; i++)
             {
                 if (player.inventory[i].name == input)
 
@@ -352,22 +362,30 @@ namespace TextAdventure
             string input = GetStringFromPlayerInput();
 
             if (CheckValidMove(input))
+            {
+
                 player.Move(TransformDirectionIntoVector(input));
+
+            }
             else
-                Console.Write("Can not go there");
+                Console.Write("\n" + "Can not go there" + "\n");
 
+            Console.Write("----------------------" + "\n");
 
+            DescribeEnvironment();
         }
 
         private bool CheckValidMove(string _direction)
         {
             bool isValid = false;
+            Maptile targetTile = currentTile;
 
             switch (_direction)
             {
                 case ("n"):
                     if (player.GetPosition().y < 3)
                     {
+                        targetTile.position.y += 1;
                         Console.Write("walking north");
                         isValid = true;
                     }
@@ -375,6 +393,7 @@ namespace TextAdventure
                 case ("e"):
                     if (player.GetPosition().x < 3)
                     {
+                        targetTile.position.x += 1;
                         Console.Write("walking east");
                         isValid = true;
                     }
@@ -382,26 +401,51 @@ namespace TextAdventure
                 case ("s"):
                     if (player.GetPosition().y > 0)
                     {
+                        targetTile.position.y -= 1;
                         Console.Write("walking south");
                         isValid = true;
                     }
                     break;
                 case ("w"):
-                    if (player.GetPosition().x > 3)
+                    if (player.GetPosition().x > 0)
                     {
+                        targetTile.position.x -= 1;
                         Console.Write("walking west");
                         isValid = true;
                     }
                     break;
                 default:
                     Console.Write("Invalid input");
-                    isValid = false;
+                   // isValid = false;
                     break;
             }
             Console.Write("\n");
+
+            if (CheckValidTile(targetTile))
+            {
+
+                currentTile = targetTile;
+                Console.Write(currentTile.position.x);
+
+                Console.Write(currentTile.position.y);
+                Console.Write(currentTile.description);
+
+            }
+
             return isValid;
         }
+        public bool CheckValidTile(Maptile _targetTile)
+        {
+            for (int i = 0; i < map.maptiles.Length; i++)
+            {
 
+                if (map.maptiles[i].position.x == _targetTile.position.x && map.maptiles[i].position.y == _targetTile.position.y)
+                {
+                    _targetTile = map.maptiles[i];
+                }
+            }
+            return _targetTile.accesible;
+        }
         private Vector2 TransformDirectionIntoVector(string _direction)
         {
             Vector2 targetDirection = new Vector2(0, 0);
@@ -435,15 +479,17 @@ namespace TextAdventure
 
             string input = GetStringFromPlayerInput();
             Character target = new Character();
-            for (int i = 1; i < currentTile.characters.Count; i++)
+            for (int i = 0; i < currentTile.characters.Count; i++)
             {
                 if (currentTile.characters[i].GetName() == input)
                     target = currentTile.characters[i];
             }
 
+            Console.Write("What would you like to do with " + target.name + "?" + "\n");
             DisplayInteractionOptions();
 
             input = GetStringFromPlayerInput();
+
             switch (input)
             {
                 case ("t"):
@@ -462,8 +508,11 @@ namespace TextAdventure
         }
         public void ShowCharacters(List<Character> _chars)
         {
-            Console.Write("\n" + "Characters:" + "\n");
-
+            Console.Write("Characters:" + "\n");
+            if (_chars.Count <= 0)
+            {
+                Console.Write("Here are no characters but you" + "\n");
+            }
             for (int i = 0; i <= _chars.Count - 1; i++)
             {
                 if (_chars[i].type == CharacterType.nonplayer)
@@ -475,7 +524,6 @@ namespace TextAdventure
 
         public void DisplayInteractionOptions()
         {
-            Console.Write("What would you like to do?" + "\n");
             Console.Write("talk (t)" + "\n");
             Console.Write("attack (a)" + "\n");
             Console.Write("close (c)" + "\n");
@@ -497,6 +545,8 @@ namespace TextAdventure
 
                     if (_target.GetHealth() > 0)
                     {
+                        Console.Write("You hit" + " " + _target.name + " with " + player.activeItem.name + "\n");
+
                         Console.Write("Want to attack again? (y) / (n)" + "\n");
                         string input = GetStringFromPlayerInput();
 
@@ -511,8 +561,6 @@ namespace TextAdventure
                     }
                     else
                     {
-                        _target.Die();
-
                         for (int i = 0; i < this.map.maptiles.Length; i++)
                         {
                             if (this.map.maptiles[i].position.x == _target.position.x && this.map.maptiles[i].position.y == _target.position.y)

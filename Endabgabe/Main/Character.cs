@@ -85,7 +85,7 @@ namespace TextAdventure
         }
         public void Die()
         {
-            Console.Write("The Character" + this.name + "" + "has passed away.");
+            Console.Write("The Character" + " " + this.name + " " + "has passed away.");
         }
 
         public Vector2 GetPosition()

@@ -58,11 +58,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Studium\\Software Design\\Endabgabe\\Main\\Main.csproj",
+      "projectUniqueName": "c:\\Users\\lenovo\\Documents\\Repositories\\SoftwareDesign\\Endabgabe\\Main\\Main.csproj",
       "projectName": "Main",
-      "projectPath": "c:\\Studium\\Software Design\\Endabgabe\\Main\\Main.csproj",
+      "projectPath": "c:\\Users\\lenovo\\Documents\\Repositories\\SoftwareDesign\\Endabgabe\\Main\\Main.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "c:\\Studium\\Software Design\\Endabgabe\\Main\\obj\\",
+      "outputPath": "c:\\Users\\lenovo\\Documents\\Repositories\\SoftwareDesign\\Endabgabe\\Main\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
