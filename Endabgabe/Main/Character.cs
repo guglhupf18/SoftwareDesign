@@ -6,7 +6,7 @@ namespace TextAdventure
 {
     public enum CharacterType
     {
-        
+
         player,
         nonplayer
     }
@@ -23,7 +23,8 @@ namespace TextAdventure
         public Item activeItem;
         private bool friendly;
 
-        public Character(){
+        public Character()
+        {
             this.name = "";
             this.health = 0;
             this.description = "";
@@ -70,18 +71,25 @@ namespace TextAdventure
             return this.type;
         }
 
-        public void TakeDamage (int _amount){
+        public void TakeDamage(int _amount)
+        {
             this.health -= _amount;
             if (this.health <= 0)
                 this.Die();
         }
 
-        public void Die(){
-            Console.Write("The Character" + this.name + "has passed away");
-            // TODO: remove the character from the current position
+        public void Talk()
+        {
+            Console.Write(this.text);
+
+        }
+        public void Die()
+        {
+            Console.Write("The Character" + this.name + "" + "has passed away.");
         }
 
-        public Vector2 GetPosition(){
+        public Vector2 GetPosition()
+        {
             return this.position;
         }
         public List<Item> GetInventory()
@@ -89,11 +97,13 @@ namespace TextAdventure
             return this.inventory;
         }
 
-        public void GainHealth(Item item){
+        public void GainHealth(Item item)
+        {
             this.health += item.value;
         }
 
-        public void Move(Vector2 _direction){
+        public void Move(Vector2 _direction)
+        {
             this.position.x += _direction.x;
             this.position.y += _direction.y;
         }

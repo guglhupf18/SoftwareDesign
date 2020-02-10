@@ -52,10 +52,22 @@ namespace TextAdventure
         private void StartGame()
         {
             Console.Write("Welcome to tortuga. Have fun!");
+            CreateWeapon("Stoneaxe", 30, "A stone axe");
             DescribeEnvironment();
             AskForPlayerInput();
         }
 
+        private Item CreateWeapon(string _name, int _value, string _descpription)
+        {
+            Item weapon = new Item();
+            weapon.name = _name;
+            weapon.value = _value;
+            weapon.description = _descpription;
+            weapon.type = ItemType.weapon;
+            player.inventory.Add(weapon);
+            player.activeItem = weapon;
+            return weapon;
+        }
         public void DescribeEnvironment()
         {
 
@@ -156,8 +168,12 @@ namespace TextAdventure
                     characterToPlace.description = charElements[i]["Description"].ToString();
                     characterToPlace.health = Int32.Parse(charElements[i]["Health"].ToString());
 
-                    characterToPlace.text = charElements[i]["Text"].ToString();
-                
+
+
+                    string text = charElements[i]["Text"].ToString();
+
+                    characterToPlace.text = text;
+
                     string type = charElements[i]["Type"].ToString();
                     if (type == "player")
                         characterToPlace.type = CharacterType.player;
@@ -468,10 +484,8 @@ namespace TextAdventure
         public void Talk(Character _target)
         {
 
-            string text = _target.text;
-            Console.Write(text);
-           
-        
+            _target.Talk();
+
         }
         public void Attack(Character _target)
         {
@@ -498,6 +512,12 @@ namespace TextAdventure
                     else
                     {
                         _target.Die();
+
+                        for (int i = 0; i < this.map.maptiles.Length; i++)
+                        {
+                            if (this.map.maptiles[i].position.x == _target.position.x && this.map.maptiles[i].position.y == _target.position.y)
+                                this.map.maptiles[i].characters.Remove(_target);
+                        }
                         AskForPlayerInput();
                     }
                 }
