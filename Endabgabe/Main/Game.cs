@@ -365,7 +365,7 @@ namespace TextAdventure
             {
 
                 player.Move(TransformDirectionIntoVector(input));
-
+                
             }
             else
                 Console.Write("\n" + "Can not go there" + "\n");
@@ -374,18 +374,17 @@ namespace TextAdventure
 
             DescribeEnvironment();
         }
-
         private bool CheckValidMove(string _direction)
         {
             bool isValid = false;
-            Maptile targetTile = currentTile;
+            Maptile targetTile = new Maptile();
 
             switch (_direction)
             {
                 case ("n"):
                     if (player.GetPosition().y < 3)
                     {
-                        targetTile.position.y += 1;
+                        targetTile.position.y = currentTile.position.y + 1;
                         Console.Write("walking north");
                         isValid = true;
                     }
@@ -393,7 +392,7 @@ namespace TextAdventure
                 case ("e"):
                     if (player.GetPosition().x < 3)
                     {
-                        targetTile.position.x += 1;
+                        targetTile.position.x = currentTile.position.x + 1;
                         Console.Write("walking east");
                         isValid = true;
                     }
@@ -401,7 +400,7 @@ namespace TextAdventure
                 case ("s"):
                     if (player.GetPosition().y > 0)
                     {
-                        targetTile.position.y -= 1;
+                        targetTile.position.y = currentTile.position.y - 1;
                         Console.Write("walking south");
                         isValid = true;
                     }
@@ -409,32 +408,28 @@ namespace TextAdventure
                 case ("w"):
                     if (player.GetPosition().x > 0)
                     {
-                        targetTile.position.x -= 1;
+                        targetTile.position.x = currentTile.position.y - 1;
                         Console.Write("walking west");
                         isValid = true;
                     }
                     break;
                 default:
                     Console.Write("Invalid input");
-                   // isValid = false;
+                    // isValid = false;
                     break;
             }
             Console.Write("\n");
 
-            if (CheckValidTile(targetTile))
+            if (CheckValidTile(targetTile).accesible)
             {
 
                 currentTile = targetTile;
-                Console.Write(currentTile.position.x);
-
-                Console.Write(currentTile.position.y);
-                Console.Write(currentTile.description);
 
             }
 
             return isValid;
         }
-        public bool CheckValidTile(Maptile _targetTile)
+        public Maptile CheckValidTile(Maptile _targetTile)
         {
             for (int i = 0; i < map.maptiles.Length; i++)
             {
@@ -444,7 +439,7 @@ namespace TextAdventure
                     _targetTile = map.maptiles[i];
                 }
             }
-            return _targetTile.accesible;
+            return _targetTile;
         }
         private Vector2 TransformDirectionIntoVector(string _direction)
         {
@@ -473,7 +468,7 @@ namespace TextAdventure
 
         private void Interact()
         {
-            Console.Write("Who would you like to interact with?");
+            Console.Write("Who would you like to interact with?" + "\n");
 
             ShowCharacters(currentTile.characters);
 
@@ -482,29 +477,35 @@ namespace TextAdventure
             for (int i = 0; i < currentTile.characters.Count; i++)
             {
                 if (currentTile.characters[i].GetName() == input)
+                {
                     target = currentTile.characters[i];
+                    Console.Write("What would you like to do with " + target.name + "?" + "\n");
+                    DisplayInteractionOptions();
+                    input = GetStringFromPlayerInput();
+
+                    switch (input)
+                    {
+                        case ("t"):
+                            Talk(target);
+                            break;
+                        case ("a"):
+                            Attack(target);
+                            break;
+                        case ("c"):
+                            AskForPlayerInput();
+                            break;
+                        default:
+                            Console.Write("no valid input");
+                            break;
+                    }
+                }
+                else
+                    Console.Write("That is no valid target");
             }
 
-            Console.Write("What would you like to do with " + target.name + "?" + "\n");
-            DisplayInteractionOptions();
 
-            input = GetStringFromPlayerInput();
 
-            switch (input)
-            {
-                case ("t"):
-                    Talk(target);
-                    break;
-                case ("a"):
-                    Attack(target);
-                    break;
-                case ("c"):
-                    AskForPlayerInput();
-                    break;
-                default:
-                    Console.Write("no valid input");
-                    break;
-            }
+
         }
         public void ShowCharacters(List<Character> _chars)
         {
