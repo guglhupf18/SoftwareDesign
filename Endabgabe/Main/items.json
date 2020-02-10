@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "StoneAxe",
+    "Value": "40",
+    "Description": "This is an axe made from stone.",
+    "Type": "weapon"
+  },
+  {
+    "Name": "Meat",
+    "Value": "10",
+    "Description": "Can be eaten",
+    "Type": "consumable"
+  }
+]

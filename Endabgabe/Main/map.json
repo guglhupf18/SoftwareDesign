@@ -1,0 +1,98 @@
+[
+  {
+    "PositionX": "0",
+    "PositionY": "0",
+    "Description": "This is tile is full of water.",
+    "Accesible": "0"
+  },
+  {
+    "PositionX": "1",
+    "PositionY": "0",
+    "Description": "The sea lays in the west. The volcano in the east.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "2",
+    "PositionY": "0",
+    "Description": "Here is a volcano.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "3",
+    "PositionY": "0",
+    "Description": "This tile is full of water.",
+    "Accesible": "0"
+  },
+  {
+    "PositionX": "0",
+    "PositionY": "1",
+    "Description": "This tile is full of water.",
+    "Accesible": "0"
+  },
+  {
+    "PositionX": "1",
+    "PositionY": "1",
+    "Description": "South lays the volcano. In the North the center of the island.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "2",
+    "PositionY": "1",
+    "Description": "This tile is full of cliffs.",
+    "Accesible": "0"
+  },
+  {
+    "PositionX": "3",
+    "PositionY": "1",
+    "Description": "This tile is full of water.",
+    "Accesible": "0"
+  },
+  {
+    "PositionX": "0",
+    "PositionY": "2",
+    "Description": "There are some trees at the beach and a way east.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "1",
+    "PositionY": "2",
+    "Description": "There is a small wooden house. The beach is more to the west than to the east.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "2",
+    "PositionY": "2",
+    "Description": "This is a forest. The beach is more to the east than to the west.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "3",
+    "PositionY": "2",
+    "Description": "Here is the light house. You are surrounded by the sea. The center of the island lays west.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "0",
+    "PositionY": "3",
+    "Description": "This tile is full of water.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "1",
+    "PositionY": "3",
+    "Description": "This tile is full of cliffs.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "2",
+    "PositionY": "3",
+    "Description": "This tile is full of cliffs.",
+    "Accesible": "1"
+  },
+  {
+    "PositionX": "3",
+    "PositionY": "3",
+    "Description": "This tile is full of water.",
+    "Accesible": "1"
+  }
+]
