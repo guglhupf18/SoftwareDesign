@@ -80,7 +80,7 @@ namespace TextAdventure
 
         public void Talk()
         {
-            Console.Write(this.name + ":" + "\"" + this.text + "\"");
+            Console.Write(this.name + ":" + "\"" + this.text + "\"" + "\n");
 
         }
         public void Die()

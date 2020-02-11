@@ -38,7 +38,7 @@ namespace TextAdventure
         }
         private void SetupGame()
         {
-
+            Console.Clear();
             if (!ParseJsonFile())
             {
                 Console.Write("Could not find a suitable .json file in the project folder" + "\n");
@@ -58,7 +58,7 @@ namespace TextAdventure
 
             Console.Write("Welcome to tortuga. Have fun!" + "\n");
 
-            Console.Write("-----------------------------------------------------------------------");
+            Console.Write("-----------------------------------------------------------------------" + "\n");
             CreateWeapon("Stoneaxe", 30, "A stone axe");
 
             currentTile = new Maptile();
@@ -90,10 +90,11 @@ namespace TextAdventure
                     currentTile = map.maptiles[i];
                 }
             }
-            Console.Write("\n" + currentTile.description);
-            Console.Write("\n" + "You can also see:");
+            Console.Write(currentTile.description + "\n");
+            Console.Write("You can also see:");
             ShowItems(currentTile.items);
             ShowCharacters(currentTile.characters);
+            AskForPlayerInput();
         }
 
         public void ShowItems(List<Item> items)
@@ -102,15 +103,15 @@ namespace TextAdventure
             if (items.Count == 0)
             {
                 Console.Write("There are no items" + "\n");
+                return;
             }
             for (int i = 0; i <= items.Count - 1; i++)
             {
                 Item itemToShow = new Item();
                 itemToShow = items[i];
                 Console.Write(itemToShow.name + "\n");
-            }
 
-            Console.Write("----------------------" + "\n");
+            }
         }
         public JArray mapElements;
         public bool ParseJsonFile()
@@ -211,12 +212,14 @@ namespace TextAdventure
 
         private string GetStringFromPlayerInput()
         {
+            Console.Write("\n" + "----------------------" + "\n");
+
             return Console.ReadLine();
         }
 
         public void AskForPlayerInput()
         {
-            Console.Write("\n" + "Please enter your command. To show all commands (c) press (c)" + "\n");
+            Console.Write("\n" + "Please enter your command. To show all commands (c) press (c)");
             switch (GetStringFromPlayerInput())
             {
                 case ("c"):
@@ -286,32 +289,33 @@ namespace TextAdventure
 
         private void DisplayInventoryOptions()
         {
-            Console.Write("-------------" + "\n");
             Console.Write("drop item (d)" + "\n");
             Console.Write("use item (u)" + "\n");
-            Console.Write("close (c)" + "\n");
-
+            Console.Write("close (c)");
         }
 
         private void DropItem()
         {
-            Console.Write("Which item would you like to drop?" + "\n");
+            Console.Write("Which item would you like to drop?");
             ShowItems(player.GetInventory());
 
             string input = GetStringFromPlayerInput();
             Item itemToDrop = new Item();
 
-            for (int i = 1; i < player.inventory.Count; i++)
+            for (int i = 0; i < player.inventory.Count; i++)
             {
                 if (player.inventory[i].name == input)
                 {
                     itemToDrop = player.inventory[i];
+                    if (itemToDrop.name == player.activeItem.name)
+                        player.activeItem = null;
                     currentTile.items.Add(itemToDrop);
                     player.inventory.Remove(itemToDrop);
 
                     Console.Write("You dropped" + " " + itemToDrop.name);
                 }
             }
+            AskForPlayerInput();
         }
 
         private void UseItem()
@@ -322,7 +326,7 @@ namespace TextAdventure
             string input = GetStringFromPlayerInput();
             Item itemToUse = new Item();
 
-            for (int i = 1; i < player.inventory.Count; i++)
+            for (int i = 0; i < player.inventory.Count; i++)
             {
                 if (player.inventory[i].name == input)
 
@@ -331,6 +335,7 @@ namespace TextAdventure
             }
             itemToUse.Use();
             player.inventory.Remove(itemToUse);
+            AskForPlayerInput();
         }
 
         private void TakeItem()
@@ -341,23 +346,27 @@ namespace TextAdventure
             string input = GetStringFromPlayerInput();
             Item itemToTake = new Item();
 
-            for (int i = 1; i <= currentTile.items.Count; i++)
+            for (int i = 0; i < currentTile.items.Count; i++)
             {
                 if (currentTile.items[i].name == input)
+                {
                     itemToTake = currentTile.items[i];
+                    player.inventory.Add(itemToTake);
+                    currentTile.items.Remove(itemToTake);
+                    Console.Write("Added " + itemToTake.name + " to your inventory.");
+                }
             }
 
-            player.inventory.Add(itemToTake);
-            currentTile.items.Remove(itemToTake);
+            AskForPlayerInput();
         }
 
         private void Move()
         {
             Console.Write("Where do you want to go?" + "\n");
-            Console.Write("north (n)" + "\n");
-            Console.Write("east (e)" + "\n");
-            Console.Write("south (s)" + "\n");
-            Console.Write("west (w)" + "\n");
+            Console.Write("north (n)" + " ");
+            Console.Write("east (e)" + " ");
+            Console.Write("south (s)" + " ");
+            Console.Write("west (w)");
 
             string input = GetStringFromPlayerInput();
 
@@ -365,14 +374,17 @@ namespace TextAdventure
             {
 
                 player.Move(TransformDirectionIntoVector(input));
-                
+
+
+                Console.Write("\n" + "----------------------" + "\n");
+                DescribeEnvironment();
+
             }
             else
                 Console.Write("\n" + "Can not go there" + "\n");
 
             Console.Write("----------------------" + "\n");
 
-            DescribeEnvironment();
         }
         private bool CheckValidMove(string _direction)
         {
@@ -385,7 +397,7 @@ namespace TextAdventure
                     if (player.GetPosition().y < 3)
                     {
                         targetTile.position.y = currentTile.position.y + 1;
-                        Console.Write("walking north");
+                        Console.Write("You are walking north");
                         isValid = true;
                     }
                     break;
@@ -393,7 +405,7 @@ namespace TextAdventure
                     if (player.GetPosition().x < 3)
                     {
                         targetTile.position.x = currentTile.position.x + 1;
-                        Console.Write("walking east");
+                        Console.Write("You are walking east");
                         isValid = true;
                     }
                     break;
@@ -401,7 +413,7 @@ namespace TextAdventure
                     if (player.GetPosition().y > 0)
                     {
                         targetTile.position.y = currentTile.position.y - 1;
-                        Console.Write("walking south");
+                        Console.Write("You are walking south");
                         isValid = true;
                     }
                     break;
@@ -409,7 +421,7 @@ namespace TextAdventure
                     if (player.GetPosition().x > 0)
                     {
                         targetTile.position.x = currentTile.position.y - 1;
-                        Console.Write("walking west");
+                        Console.Write("You are walking west");
                         isValid = true;
                     }
                     break;
@@ -417,19 +429,12 @@ namespace TextAdventure
                     Console.Write("Invalid input");
                     // isValid = false;
                     break;
-            }
-            Console.Write("\n");
-
-            if (CheckValidTile(targetTile).accesible)
-            {
-
-                currentTile = targetTile;
 
             }
 
             return isValid;
         }
-        public Maptile CheckValidTile(Maptile _targetTile)
+        public bool CheckValidTile(Maptile _targetTile)
         {
             for (int i = 0; i < map.maptiles.Length; i++)
             {
@@ -439,7 +444,7 @@ namespace TextAdventure
                     _targetTile = map.maptiles[i];
                 }
             }
-            return _targetTile;
+            return _targetTile.accesible;
         }
         private Vector2 TransformDirectionIntoVector(string _direction)
         {
@@ -500,34 +505,26 @@ namespace TextAdventure
                     }
                 }
                 else
-                    Console.Write("That is no valid target");
+                    Console.Write("That is no valid target" + "\n");
             }
-
-
-
-
+            AskForPlayerInput();
         }
         public void ShowCharacters(List<Character> _chars)
         {
-            Console.Write("Characters:" + "\n");
-            if (_chars.Count <= 0)
-            {
-                Console.Write("Here are no characters but you" + "\n");
-            }
+            Console.Write("Characters:");
+
             for (int i = 0; i <= _chars.Count - 1; i++)
             {
                 if (_chars[i].type == CharacterType.nonplayer)
-                    Console.Write(_chars[i].GetName() + "\n");
+                    Console.Write("\n" + _chars[i].GetName());
             }
-
-            Console.Write("----------------------" + "\n");
         }
 
         public void DisplayInteractionOptions()
         {
             Console.Write("talk (t)" + "\n");
             Console.Write("attack (a)" + "\n");
-            Console.Write("close (c)" + "\n");
+            Console.Write("close (c)");
         }
 
         public void Talk(Character _target)
@@ -579,7 +576,7 @@ namespace TextAdventure
 
         public void QuitGame()
         {
-            Console.Write("Do you really want to quit? (y) / (n)");
+            Console.Write("Do you really want to quit? (y) / (n)" + "\n");
             string input = GetStringFromPlayerInput();
             if (input == "n")
                 AskForPlayerInput();
@@ -588,7 +585,6 @@ namespace TextAdventure
                 Console.Write("Quitting game");
                 Environment.Exit(0);
             }
-
         }
     }
 
