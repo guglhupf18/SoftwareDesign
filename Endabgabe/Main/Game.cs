@@ -79,7 +79,6 @@ namespace TextAdventure
         }
         public void DescribeEnvironment()
         {
-
             Vector2 playerPos = player.GetPosition();
 
             for (int i = 0; i < map.maptiles.Length; i++)
@@ -91,7 +90,10 @@ namespace TextAdventure
                 }
             }
             Console.Write(currentTile.description + "\n");
-            Console.Write("You can also see:");
+            Console.Write("You can also see:" + "\n");
+            
+
+            Console.Write("----------------------" + "\n");
             ShowItems(currentTile.items);
             ShowCharacters(currentTile.characters);
             AskForPlayerInput();
@@ -103,6 +105,8 @@ namespace TextAdventure
             if (items.Count == 0)
             {
                 Console.Write("There are no items" + "\n");
+
+                Console.Write("----------------------" + "\n");
                 return;
             }
             for (int i = 0; i <= items.Count - 1; i++)
@@ -110,8 +114,9 @@ namespace TextAdventure
                 Item itemToShow = new Item();
                 itemToShow = items[i];
                 Console.Write(itemToShow.name + "\n");
-
             }
+
+            Console.Write("----------------------" + "\n");
         }
         public JArray mapElements;
         public bool ParseJsonFile()
@@ -254,11 +259,11 @@ namespace TextAdventure
         {
             Console.Write("Commands:" + "\n");
             Console.Write("commands (c)" + "\n");
-            Console.Write("open inventory (o)" + "\n");
             Console.Write("look around (l)" + "\n");
-            Console.Write("take item (t)" + "\n");
             Console.Write("move (m)" + "\n");
             Console.Write("interact (i)" + "\n");
+            Console.Write("open inventory (o)" + "\n");
+            Console.Write("take item (t)" + "\n");
             Console.Write("quit game (q)" + "\n");
         }
 
@@ -281,7 +286,6 @@ namespace TextAdventure
                     break;
                 default:
                     Console.Write("invalid input");
-
                     OpenInventory();
                     break;
             }
@@ -334,28 +338,34 @@ namespace TextAdventure
 
             }
             itemToUse.Use();
-            player.inventory.Remove(itemToUse);
+            if (itemToUse.type == ItemType.consumable)
+                player.inventory.Remove(itemToUse);
             AskForPlayerInput();
         }
 
         private void TakeItem()
         {
             Console.Write("Which item would you like to take?" + "\n");
-            ShowItems(currentTile.items);
-
-            string input = GetStringFromPlayerInput();
-            Item itemToTake = new Item();
-
-            for (int i = 0; i < currentTile.items.Count; i++)
+            if (currentTile.items.Count > 0)
             {
-                if (currentTile.items[i].name == input)
+                ShowItems(currentTile.items);
+
+                string input = GetStringFromPlayerInput();
+                Item itemToTake = new Item();
+
+                for (int i = 0; i < currentTile.items.Count; i++)
                 {
-                    itemToTake = currentTile.items[i];
-                    player.inventory.Add(itemToTake);
-                    currentTile.items.Remove(itemToTake);
-                    Console.Write("Added " + itemToTake.name + " to your inventory.");
+                    if (currentTile.items[i].name == input)
+                    {
+                        itemToTake = currentTile.items[i];
+                        player.inventory.Add(itemToTake);
+                        currentTile.items.Remove(itemToTake);
+                        Console.Write("Added " + itemToTake.name + " to your inventory.");
+                    }
                 }
             }
+            else
+                Console.Write("Here is nothing to take.");
 
             AskForPlayerInput();
         }
@@ -473,51 +483,56 @@ namespace TextAdventure
 
         private void Interact()
         {
-            Console.Write("Who would you like to interact with?" + "\n");
-
-            ShowCharacters(currentTile.characters);
-
-            string input = GetStringFromPlayerInput();
-            Character target = new Character();
-            for (int i = 0; i < currentTile.characters.Count; i++)
+            if (currentTile.characters.Count > 0)
             {
-                if (currentTile.characters[i].GetName() == input)
-                {
-                    target = currentTile.characters[i];
-                    Console.Write("What would you like to do with " + target.name + "?" + "\n");
-                    DisplayInteractionOptions();
-                    input = GetStringFromPlayerInput();
+                Console.Write("Who would you like to interact with?" + "\n");
 
-                    switch (input)
+                ShowCharacters(currentTile.characters);
+
+                string input = GetStringFromPlayerInput();
+                Character target = new Character();
+                for (int i = 0; i < currentTile.characters.Count; i++)
+                {
+                    if (currentTile.characters[i].GetName() == input)
                     {
-                        case ("t"):
-                            Talk(target);
-                            break;
-                        case ("a"):
-                            Attack(target);
-                            break;
-                        case ("c"):
-                            AskForPlayerInput();
-                            break;
-                        default:
-                            Console.Write("no valid input");
-                            break;
+                        target = currentTile.characters[i];
+                        Console.Write("What would you like to do with " + target.name + "?" + "\n");
+                        DisplayInteractionOptions();
+                        input = GetStringFromPlayerInput();
+
+                        switch (input)
+                        {
+                            case ("t"):
+                                Talk(target);
+                                break;
+                            case ("a"):
+                                Attack(target);
+                                break;
+                            case ("c"):
+                                AskForPlayerInput();
+                                break;
+                            default:
+                                Console.Write("no valid input" + "\n");
+                                break;
+                        }
                     }
+                    else
+                        Console.Write("That is no valid target" + "\n");
                 }
-                else
-                    Console.Write("That is no valid target" + "\n");
             }
+            else Console.Write("Here is no character but you.");
             AskForPlayerInput();
         }
         public void ShowCharacters(List<Character> _chars)
         {
             Console.Write("Characters:");
-
+           
             for (int i = 0; i <= _chars.Count - 1; i++)
             {
                 if (_chars[i].type == CharacterType.nonplayer)
                     Console.Write("\n" + _chars[i].GetName());
             }
+            Console.Write("\n");
         }
 
         public void DisplayInteractionOptions()
@@ -545,7 +560,7 @@ namespace TextAdventure
                     {
                         Console.Write("You hit" + " " + _target.name + " with " + player.activeItem.name + "\n");
 
-                        Console.Write("Want to attack again? (y) / (n)" + "\n");
+                        Console.Write("Want to attack again? (y) / (n)");
                         string input = GetStringFromPlayerInput();
 
                         if (input == "y")
@@ -568,21 +583,21 @@ namespace TextAdventure
                     }
                 }
                 else
-                    Console.Write("No weapon equipped");
+                    Console.Write("No weapon equipped.");
             }
             else
-                Console.Write("Can not attack without active item" + "\n");
+                Console.Write("Can not attack without active item." + "\n");
         }
 
         public void QuitGame()
         {
-            Console.Write("Do you really want to quit? (y) / (n)" + "\n");
+            Console.Write("Do you really want to quit? (y) / (n)");
             string input = GetStringFromPlayerInput();
             if (input == "n")
                 AskForPlayerInput();
             else if (input == "y")
             {
-                Console.Write("Quitting game");
+                Console.Write("Quitting game..");
                 Environment.Exit(0);
             }
         }

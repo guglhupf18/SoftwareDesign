@@ -15,7 +15,7 @@
     "Description": "Mahoga seems to live on this island. He looks friendly.",
     "Type": "nonplayer",
     "Health": "100",
-    "Text": "Hello my name is Mahoga. The storm destroyed my house. Could you get me some wood from the forest?"
+    "Text": "Hello my name is Mahoga. The storm destroyed my house."
   },
   {
     "Name": "Roar",
